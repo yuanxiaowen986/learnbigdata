@@ -13,11 +13,15 @@ cd命令：切换目录
 ls命令：查看文件与目录        
 （4）查看目录/usr下所有的文件  $ cd /usr/  —》 $ ls  —》$ ls *
 mkdir命令：新建新目录
-（5）进入/tmp目录，创建一个名为a的目录,并查看有多少目录存在   $ cd /tmp  —》$ mkdir ./a  —》$ ls
-（6）创建目录a1/a2/a3/a4    $ cd /tmp   —》$ mkdir ./a1  —》$ cd ./a1  —》$ mkdir ./a2  —》$ cd ./a2  —》$ mkdir a3 —》$ cd a3  —》$ mkdir a4
+（5）进入/tmp目录，创建一个名为a的目录,并查看有多少目录存在   $ cd /tmp  —》$ mkdir a  —》$ ls
+（6）创建目录a1/a2/a3/a4    
+方式1：$ cd /tmp   —》$ mkdir ./a1  —》$ cd ./a1  —》$ mkdir ./a2  —》$ cd ./a2  —》$ mkdir a3 —》$ cd a3  —》$ mkdir a4
+方式2：# mkdir -p a1/a2/a3/a4
+尽量用方式1,因为方式2s可能导致目录的混乱。
+
 rmdir命令：删除空的目录
-（7）将上例创建的目录a（/tmp下面）删除
-（8）删除目录a1/a2/a3/a4，查看有多少目录存在
+（7）将上例创建的目录a（/tmp下面）删除    # rmdir a
+（8）删除目录a1/a2/a3/a4，查看有多少目录存在   # rmdir -p a1/a2/a3/a4
 cp命令：复制文件或目录
 （9）将主文件夹下的.bashrc复制到/usr下，命名为bashrc1
 （10）在/tmp下新建目录test，再复制这个目录内容到/usr
@@ -53,7 +57,7 @@ grep命令：查找字符串
 （28）从～/.bashrc文件中查找字符串'examples'
 
 （29）配置Java环境变量，在～/.bashrc中设置
-（30）查看JAVA_HOME变量的值
+（30）查看JAVA_HOME变量的值     $ echo $JAVA_HOME
 
 （二）熟悉常用的Hadoop操作
 （31）启动hadoop，在HDFS中创建用户目录（现在已经在hadoop目录/usr/local/hadoop）
