@@ -23,10 +23,10 @@ rmdir命令：删除空的目录
 （7）将上例创建的目录a（/tmp下面）删除    # rmdir a
 （8）删除目录a1/a2/a3/a4，查看有多少目录存在   # rmdir -p a1/a2/a3/a4
 cp命令：复制文件或目录
-（9）将主文件夹下的.bashrc复制到/usr下，命名为bashrc1
-（10）在/tmp下新建目录test，再复制这个目录内容到/usr
-mv命令：移动文件与目录，或更名
-（11）将上例文件bashrc1移动到目录/usr/test
+（9）将主文件夹下的.bashrc复制到/usr下，命名为bashrc1    # cp ~/.bashrc /usr/bashrc1
+（10）在/tmp下新建目录test，再复制这个目录内容到/usr     # cd /tmp —》 # mkdir test —》# cp -r /tmp/test/ /usr
+mv命令：移动文件与目录，或更名                          
+（11）将上例文件bashrc1移动到目录/usr/test              
 （12）将上例test目录重命名为test2
 rm命令：移除文件或目录
 （13）将上例复制的bashrc1文件删除
