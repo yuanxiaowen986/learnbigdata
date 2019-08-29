@@ -91,7 +91,37 @@ root@ubantu-K42Jv:~# tail -n +50 ~/.bashrc
 
 touch命令：修改文件时间或创建新文件
 （22）在/tmp下创建一个空文件hello并查看时间
+hadoop@ubantu-K42Jv:/$ cd /tmp
+hadoop@ubantu-K42Jv:/tmp$ ls
+config-err-3t2Yks                  sogou-qimpanel-cellhadoop
+fcitx-socket-:0                    sogou-qimpanelhadoop
+sni-qt_sogou-qimpanel_2134-MgplQs  unity_support_test.0
+sogou-qimpanel:0.pid
+hadoop@ubantu-K42Jv:/tmp$ ls -l
+总用量 8
+-rw------- 1 hadoop hadoop    0  8月 29 21:28 config-err-3t2Yks
+srw------- 1 hadoop hadoop    0  8月 29 21:28 fcitx-socket-:0
+drwx------ 3 hadoop hadoop 4096  8月 29 21:28 sni-qt_sogou-qimpanel_2134-MgplQs
+-rw-rw-rw- 1 hadoop hadoop    5  8月 29 21:28 sogou-qimpanel:0.pid
+srwxrwxr-x 1 hadoop hadoop    0  8月 29 21:28 sogou-qimpanel-cellhadoop
+srwxrwxr-x 1 hadoop hadoop    0  8月 29 21:28 sogou-qimpanelhadoop
+-rw-rw-r-- 1 hadoop hadoop    0  8月 29 21:28 unity_support_test.0
+hadoop@ubantu-K42Jv:/tmp$ touch hello
+hadoop@ubantu-K42Jv:/tmp$ ls -l hello
+-rw-rw-r-- 1 hadoop hadoop 0  8月 29 22:11 hello
+hadoop@ubantu-K42Jv:/tmp$ 
 （23）修改hello文件，将日期调整为5天前
+hadoop@ubantu-K42Jv:/tmp$ touch -d "5 days ago" hello
+hadoop@ubantu-K42Jv:/tmp$ date;
+2019年 08月 29日 星期四 22:16:23 CST
+hadoop@ubantu-K42Jv:/tmp$ date; ll hello; ll --time=atime hello; ll --time=ctime hello
+2019年 08月 29日 星期四 22:17:28 CST
+-rw-rw-r-- 1 hadoop hadoop 0  8月 24 22:16 hello
+-rw-rw-r-- 1 hadoop hadoop 0  8月 24 22:16 hello
+-rw-rw-r-- 1 hadoop hadoop 0  8月 29 22:16 hello
+hadoop@ubantu-K42Jv:/tmp$ 
+
+
 chown命令：修改文件所有者权限
 （24）将hello文件所有者改为root帐号，并查看属性
 find命令：文件查找
