@@ -124,6 +124,20 @@ hadoop@ubantu-K42Jv:/tmp$
 
 chown命令：修改文件所有者权限
 （24）将hello文件所有者改为root帐号，并查看属性
+hadoop@ubantu-K42Jv:/tmp$ ls -l hello
+-rw-rw-r-- 1 hadoop hadoop 0  8月 31 11:55 hello
+hadoop@ubantu-K42Jv:/tmp$ chown -R root:root hello
+chown: 正在更改"hello" 的所有者: 不允许的操作
+hadoop@ubantu-K42Jv:/tmp$ sudo chown -R root:root hello
+[sudo] password for hadoop: 
+hadoop@ubantu-K42Jv:/tmp$ ls -l hello
+-rw-rw-r-- 1 root root 0  8月 31 11:55 hello
+hadoop@ubantu-K42Jv:/tmp$ sudo chmod -R 755 hello
+hadoop@ubantu-K42Jv:/tmp$ ls -l hello
+-rwxr-xr-x 1 root root 0  8月 31 11:55 hello
+hadoop@ubantu-K42Jv:/tmp$ 
+
+
 find命令：文件查找
 （25）找出主文件夹下文件名为.bashrc的文件
 tar命令：压缩命令
