@@ -140,9 +140,49 @@ hadoop@ubantu-K42Jv:/tmp$
 
 find命令：文件查找
 （25）找出主文件夹下文件名为.bashrc的文件
+hadoop@ubantu-K42Jv:~$ find ~ -name .bashrc
+/home/hadoop/.bashrc
+find: `/home/hadoop/.dbus': 权限不够
+find: `/home/hadoop/.config/enchant': 权限不够
+find: `/home/hadoop/.cache/dconf': 权限不够
+find: `/home/hadoop/.gvfs': 权限不够
+hadoop@ubantu-K42Jv:~$ 
+
+
 tar命令：压缩命令
 （26）在/目录下新建文件夹test,然后在/目录下打包成test.tar.gz
+hadoop@ubantu-K42Jv:~$ cd /
+hadoop@ubantu-K42Jv:/$ 
+hadoop@ubantu-K42Jv:/$ 
+hadoop@ubantu-K42Jv:/$ mkdir test
+mkdir: 无法创建目录"test": 权限不够
+hadoop@ubantu-K42Jv:/$ sudo mkdir test
+[sudo] password for hadoop: 
+hadoop@ubantu-K42Jv:/$ ls
+bin    dev   initrd.img  lost+found  opt   run   sys   usr
+boot   etc   lib         media       proc  sbin  test  var
+cdrom  home  lib64       mnt         root  srv   tmp   vmlinuz
+hadoop@ubantu-K42Jv:/$ tar -czf test.tar.gz test
+tar (child): test.tar.gz：无法 open: 权限不够
+tar (child): Error is not recoverable: exiting now
+hadoop@ubantu-K42Jv:/$ sudo tar -czf test.tar.gz test
+hadoop@ubantu-K42Jv:/$ ls
+bin    dev   initrd.img  lost+found  opt   run   sys          tmp  vmlinuz
+boot   etc   lib         media       proc  sbin  test         usr
+cdrom  home  lib64       mnt         root  srv   test.tar.gz  var
+hadoop@ubantu-K42Jv:/$ 
 （27）解压缩到/tmp目录
+hadoop@ubantu-K42Jv:/$ tar -xzvf test.tar.gz -C /tmp
+test/
+hadoop@ubantu-K42Jv:/$ cd /tmp
+hadoop@ubantu-K42Jv:/tmp$ ls
+config-err-DcvPRs                  sogou-qimpanel-cellhadoop
+fcitx-socket-:0                    sogou-qimpanelhadoop
+sni-qt_sogou-qimpanel_2110-yGDtNk  test
+sogou-qimpanel:0.pid               unity_support_test.0
+hadoop@ubantu-K42Jv:/tmp$ 
+
+
 grep命令：查找字符串
 （28）从～/.bashrc文件中查找字符串'examples'
 
