@@ -185,9 +185,30 @@ hadoop@ubantu-K42Jv:/tmp$
 
 grep命令：查找字符串
 （28）从～/.bashrc文件中查找字符串'examples'
-
+hadoop@ubantu-K42Jv:~$ grep "examples"  ~/.bashrc
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+hadoop@ubantu-K42Jv:~$ 
 （29）配置Java环境变量，在～/.bashrc中设置
+hadoop@ubantu-K42Jv:~$ vim ~/.bashrc
+在文件最前面添加export JAVA_HOME=/usr/local/jdk1.7.0_80，并保存退出(:wq)。
+hadoop@ubantu-K42Jv:~$ source ~/.bashrc
+hadoop@ubantu-K42Jv:~$ echo $JAVA_HOME
+/usr/local/jdk1.7.0_80
+hadoop@ubantu-K42Jv:~$ java -version
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+hadoop@ubantu-K42Jv:~$ 
 （30）查看JAVA_HOME变量的值     $ echo $JAVA_HOME
+hadoop@ubantu-K42Jv:~$ echo $JAVA_HOME
+/usr/local/jdk1.7.0_80
+hadoop@ubantu-K42Jv:~$ java -version
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+hadoop@ubantu-K42Jv:~$
 
 （二）熟悉常用的Hadoop操作
 （31）启动hadoop，在HDFS中创建用户目录（现在已经在hadoop目录/usr/local/hadoop）
