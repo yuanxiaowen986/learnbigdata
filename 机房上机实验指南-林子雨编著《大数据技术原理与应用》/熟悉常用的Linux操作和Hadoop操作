@@ -212,7 +212,50 @@ hadoop@ubantu-K42Jv:~$
 
 （二）熟悉常用的Hadoop操作
 （31）启动hadoop，在HDFS中创建用户目录（现在已经在hadoop目录/usr/local/hadoop）
+hadoop@ubantu-K42Jv:~/learnjava$ cd /usr/local/hadoop
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ start-dfs.sh
+19/09/09 20:16:22 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Starting namenodes on [localhost]
+hadoop@localhost's password: 输入hadoop
+localhost: starting namenode, logging to /usr/local/hadoop/logs/hadoop-hadoop-namenode-ubantu-K42Jv.out
+hadoop@localhost's password: 输入hadoop
+localhost: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hadoop-datanode-ubantu-K42Jv.out
+Starting secondary namenodes [0.0.0.0]
+hadoop@0.0.0.0's password: 输入hadoop
+0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop/logs/hadoop-hadoop-secondarynamenode-ubantu-K42Jv.out
+19/09/09 20:17:39 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ jps
+3130 NameNode
+3631 Jps
+3517 SecondaryNameNode
+3306 DataNode
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ 
+
+浏览器输入：http://localhost:50070，可登陆hadoop Web前台。
+
 （32）接着在此用户目录下创建text文件夹，并查看文件列表
-（33）将～/.bashrc文件上传到HDFS的test文件夹，并查看test
-（34） 将HDFS文件夹test拷到本机
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ hdfs dfs -mkdir text
+19/09/09 20:28:12 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ hdfs dfs -ls
+19/09/09 20:33:12 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 3 items
+drwxr-xr-x   - hadoop supergroup          0 2019-06-24 21:11 input
+drwxr-xr-x   - hadoop supergroup          0 2019-06-24 21:32 output
+drwxr-xr-x   - hadoop supergroup          0 2019-09-09 20:28 text
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ 
+
+（33）将～/.bashrc文件上传到HDFS的text文件夹，并查看text
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ ./bin/hdfs dfs -put ~/.bashrc text
+19/09/09 20:49:20 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ ./bin/hdfs dfs -ls text
+19/09/09 20:49:51 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 1 items
+-rw-r--r--   1 hadoop supergroup       3740 2019-09-09 20:49 text/.bashrc
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ 
+
+（34） 将HDFS文件夹text拷到本机
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ hdfs dfs -get text ./text
+19/09/09 20:59:47 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+hadoop@ubantu-K42Jv:/usr/local/hadoop$ 
+
 
